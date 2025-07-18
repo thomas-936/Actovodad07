@@ -94,8 +94,26 @@ while opcion != 4:
                     print(f"Carrera: {data['carrera']}")
                     print("\nCursos")
                     for codigo_curso, info in data["cursos"].items():
-                        print(f"Codigo del curo: {codigo_curso}")
+                        print(f"\nCodigo del curo: {codigo_curso}")
                         print(f"Nombre del curso: {info['nombre_curso']}")
                         print(f"Nota tareas: {info['nota_tareas']}")
                         print(f"Nota parciales: {info['nota_parciales']}")
                         print(f"Nota proyecto: {info['nota_proyecto']}")
+        case 3:
+            print("Buscar estudiante por carnet... ")
+            busco = input("Ingrese el carnet que desea buscar: ")
+            if busco in estudiantes:
+                data = estudiantes[busco]
+                print(f"\nCarent: {busco}")
+                print(f"Nombre: {data['nombre']}")
+                print(f"Edad: {data['edad']}")
+                print(f"Carrera: {data['carrera']}")
+                print(f"\nCursos")
+                for codigo_curso, info in data["cursos"].items():
+                    print(f"Codigo del curso: {codigo_curso}")
+                    print(f"Nombre del curso: {info['nombre_curso']}")
+                    print(f"Nota tareas: {info['nota_tareas']}")
+                    print(f"Nota parciales: {info['nota_parciales']}")
+                    print(f"Nota proyecto: {info['nota_proyecto']}")
+            else:
+                print("El carnet ingresado no existe... ")
