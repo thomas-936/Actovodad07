@@ -83,4 +83,19 @@ while opcion != 4:
                 }
                 print(f"\nEstiante {nombre} registrado correctamente...")
         case 2:
-
+            print("++Listado completo de estudiantes++")
+            if len(estudiantes) == 0:
+                print("No hay estudiantes registrados")
+            else:
+                for carnet, data in estudiantes.items():
+                    print(f"Carnet: {carnet}")
+                    print(f"Nombre: {data['nombre']}")
+                    print(f"Edad: {data['edad']}")
+                    print(f"Carrera: {data['carrera']}")
+                    print("\nCursos")
+                    for codigo_curso, info in data["cursos"].items():
+                        print(f"Codigo del curo: {codigo_curso}")
+                        print(f"Nombre del curso: {info['nombre_curso']}")
+                        print(f"Nota tareas: {info['nota_tareas']}")
+                        print(f"Nota parciales: {info['nota_parciales']}")
+                        print(f"Nota proyecto: {info['nota_proyecto']}")
