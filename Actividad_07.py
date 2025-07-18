@@ -1,20 +1,28 @@
 print("Actividad 07")
 opcion = 0
 estudiantes = {}
+
 while opcion!= 4:
-    print("++Menu++")
+    print("\n++Menu++")
     print("1. Registrar estudiantes: ")
     print("2. Mostrar todos los estidiantes y sus cursos: ")
     print("3. Buscar estudiante por carnet: ")
     print("4. Salir")
-    opcion = int(input("Ingrese su opción: "))
+
+    try:
+        opcion = int(input("Ingrese su opción: "))
+    except ValueError:
+        print("Ingrese una opcion valida...")
+        continue
 
     match opcion:
         case 1:
+
+
             print("Registrar estudiantes... ")
             cantidad = int(input("Ingrese la cantidad de estudiantes que desea ingresar: "))
             for i in range(cantidad):
-                print(f"\nIngrese estudiante #{i}")
+                print(f"\nIngrese estudiante #{i+1}")
                 while True:
                     carnet = input("Ingrese el carnet del estudiante: ")
                     if carnet in estudiantes:
@@ -24,46 +32,35 @@ while opcion!= 4:
                 nombre = input("Ingrese el nombre del estudiante: ")
                 edad = int(input("Ingrese la edad del estudiante: "))
                 carrera = input("Ingrese la carrera del estudiante: ")
-                cantidad_cursos = int(input("Ingrese la cantidad de cursoso: "))
+
+                cursos= {}
+                cantidad_cursos = int(input("Ingrese la cantidad de cursos: "))
                 for j in range(cantidad_cursos):
-                    print(f"Ingrese el curso #{j}: ")
+                    print(f"Ingrese el curso #{j+1}: ")
                     while True:
                         codigo_curso = input("Ingrese el codigo del curso: ")
                         if codigo_curso in estudiantes:
                             print("Este codigo ya esta registrado, intentelo de nuevo... ")
                         else :
                             break
+
+                nombre_curso=  input("Ingrese el nombre del curso: ")
                 nota_tareas = int(input("Ingrese la nota de las tareas: "))
-                if nota_tareas > 0 and nota_tareas < 100:
-                    print("Nota ingresada...")
+                if 0<= nota_tareas <= 100:
+                    break
                 else:
-                    print("Ingrese una nota correcta.")
+                    print("La nota debe estar entre 0 y 100.")
                 nota_parciales = int(input("Ingrese la nota de los parciales: "))
-                if nota_parciales > 0 and nota_parciales < 100:
-                    print("Nota ingresada... ")
+                if 0<= nota_parciales <= 100:
+                    break
                 else:
-                    print("Ingrese una nota correcta.")
+                    print("La nota debe estar entre 0 y 100.")
                 nota_proyecto = int(input("Ingrese la nota del proyecto: "))
-                if nota_proyecto > 0 and nota_proyecto < 100:
-                    print("Nota ingresada...")
+                if 0 <= nota_proyecto <= 100:
+                    break
                 else:
-                    print("Ingrese una nota correcta.")
+                    print("La nota debe estar entre 0 y 100.")
 
-            estudiantes[carnet] = {
-                "nombre": nombre,
-                "edad": edad,
-                "carrera": carrera,
-                "codigo_curso":{
-                    "nota_tareas": nota_tareas,
-                    "nota_parciales": nota_parciales,
-                    "nota_proyecto": nota_proyecto
+                cursos[cantidad_cursos]= {
+
                 }
-
-            }
-
-
-
-
-
-
-
